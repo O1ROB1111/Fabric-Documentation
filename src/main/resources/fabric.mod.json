@@ -1,0 +1,38 @@
+{
+	"schemaVersion": 1,
+	"id": "ffabric_ddocumentation",
+	"version": "${version}",
+	"name": "_Fabric_Documentation_",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/ffabric_ddocumentation/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"me.felltomato6998._Fabric_Documentation_"
+		],
+		"client": [
+			"me.felltomato6998._Fabric_Documentation_Client"
+		]
+	},
+	"mixins": [
+		"ffabric_ddocumentation.mixins.json",
+		{
+			"config": "ffabric_ddocumentation.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.18.4",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
