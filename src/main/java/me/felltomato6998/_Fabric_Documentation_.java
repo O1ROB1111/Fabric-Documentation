@@ -2,6 +2,8 @@ package me.felltomato6998;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
+import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,9 +18,15 @@ public class _Fabric_Documentation_ implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ModItems.initialize();
-		// This code runs as soon as Minecraft is in a mod-load-ready state.
-		// However, some things (like resources) may still be uninitialized.
-		// Proceed with mild caution.
+		/* SUSPICIOUS_SUBSTANCE */
+		// Add the suspicious substance to the composting registry with a 30% chance of increasing the composter's level.
+		CompostingChanceRegistry.INSTANCE.add(ModItems.SUSPICIOUS_SUBSTANCE, 0.3f);
+		// Add the suspicious substance to the registry of fuels, with a burn time of 30 seconds.
+		// Remember, Minecraft deals with logical based-time using ticks.
+		// 20 ticks = 1 second.
+		FuelRegistryEvents.BUILD.register((builder, context) -> {
+			builder.add(ModItems.SUSPICIOUS_SUBSTANCE, 30 * 20);
+		});
 
 		LOGGER.info("Hello Fabric world!");
 	}
