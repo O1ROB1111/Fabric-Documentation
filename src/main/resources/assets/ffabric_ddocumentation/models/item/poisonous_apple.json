@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "ffabric_ddocumentation:item/poisonous_apple"
+  }
+}
